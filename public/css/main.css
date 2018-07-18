@@ -6,3 +6,7 @@
   box-shadow: 2px 2px 2px 2px silver;
   padding: 10px
 }
+
+.card {
+  width: 300px;
+}
