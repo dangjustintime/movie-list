@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>MovieList</title>
+    <!-- angular cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <!-- app.js -->
+    <script src='./js/app.js'></script>
+    <!-- main.css -->
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
+  <body>
+    <h1>MovieList</h1>
+    <div class="createMovie">
+      <form ng-submit='ctrl.'>
+        Title: <input type="text">
+        Year: <input type="number">
+
+      </form>
+
+    </div>
+  </body>
+</html>
