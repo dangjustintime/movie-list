@@ -1,0 +1,8 @@
+.createMovie {
+  width: 300px;
+  height: 380px;
+  margin: auto;
+  margin-top: 10px;
+  box-shadow: 2px 2px 2px 2px silver;
+  padding: 10px
+}
