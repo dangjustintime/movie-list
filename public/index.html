@@ -17,11 +17,13 @@
     <link rel="stylesheet" href="./css/main.css">
   </head>
   <body ng-controller='MainController as ctrl'>
+    <!-- header/nav -->
     <nav>
        <div class="nav-wrapper  grey darken-3" >
          <a href="#" class="brand-logo center amber-text text-accent-3">MovieList</a>
        </div>
      </nav>
+    <!-- new movie form -->
     <div class="createMovie">
       <h5>Add a New Movie</h5>
       <form ng-submit='ctrl.createMovie()'>
@@ -29,16 +31,17 @@
         Year: <input type="number" ng-model='ctrl.year'>
         Poster Image: <input type="text" ng-model='ctrl.image'>
         Description: <input type='text' ng-model='ctrl.description' />
+
+        <label>
+          <input type="checkbox" ng-model='ctrl.watched'/>
+          <span>Have you watched it?</span>
+        </label>
         <input type="submit" value="Add">
-      <label>
-        <input type="checkbox" ng-model='ctrl.watched'/>
-        <span>Have you watched it?</span>
-      </label>
       </form>
     </div>
-<br />
-<br />
-<br />
+  <br />
+  <br />
+  <br />
   <ul>
     <li ng-repeat='movie in ctrl.movies'>
       <div class="row">
