@@ -52,7 +52,8 @@ app.controller("MainController", ["$http", function ($http) {
     }
     // CREATE MOVIE
     this.createMovie = function () {
-      console.log('is this running');
+      console.log(this.title);
+      console.log(this.watched);
         $http({
             method: "POST",
             url: "/movie",
