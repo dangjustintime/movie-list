@@ -1,5 +1,11 @@
 body {
-  background-image: url('https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png');
+  background-image: url('https://cdn.wallpapersafari.com/7/75/eq4LuF.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nav-wrapper {
+  border-bottom: 1px solid rgba(236, 177, 61, 0.71);
 }
 
 .createMovie {
