@@ -56,9 +56,9 @@
 
             </div>
             <div class="card-action">
-              <button type="button" ng-click='ctrl.watchedToggle(movie)'> {{ctrl.watched}}</button>
+              Watched it? <button type="button" ng-click='ctrl.watchedToggle(movie)'> {{movie.watched}}</button>
               <i ng-click='ctrl.toggleModal(movie)' class="material-icons">edit</i>
-              <i ng-click='ctrl.deleteMovie()' class="material-icons">delete_forever</i>
+              <i ng-click='ctrl.deleteMovie(movie)' class="material-icons">delete_forever</i>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ const movieListSchema = new mongoose.Schema({
   description: String,
   year: Number,
   image: String,
-  watched: Boolean
+  watched: String
 })
 
 const MovieList = mongoose.model('MovieList', movieListSchema)

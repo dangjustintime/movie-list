@@ -12,6 +12,7 @@ router.get('/', (request, response) => {
 // CREATE ROUTE
 router.post('/', (request, response) => {
     Movie.create(request.body, (error, createdMovie) => {
+      console.log(error);
         response.json(createdMovie);
     });
 });
