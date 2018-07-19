@@ -11,6 +11,8 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    <!-- Materialize icons -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- app.js -->
     <script src='./js/app.js'></script>
     <!-- main.css -->
@@ -48,16 +50,16 @@
         <div class="col s12 m7">
           <div class="card large">
             <div class="card-image">
-              <img src="{{ctrl.image}}">
+              <img src="{{movie.image}}">
             </div>
             <div class="card-content">
-              <p class="card-title">{{ctrl.title}}</p>
-              <p>{{ctrl.description}}</p>
-              <p>{{ctrl.year}}</p>
+              <p class="card-title">{{movie.title}} - {{movie.year}}
+              <p>{{movie.description}}</p>
+
             </div>
             <div class="card-action">
-              <a href="#">Link to edit?</a>
-              <a href="#">Watched</a>
+               <i ng-click='ctrl.toggleModal(movie)' class="material-icons">edit</i>
+              <button type="button" ng-click='ctrl.watchedToggle(movie)'> {{ctrl.watched}}</button>
               <span ng-click='ctrl.deleteMovie(movie)'>X</span>
             </div>
           </div>
@@ -65,5 +67,32 @@
       </div>
     </li>
   </ul>
-  </body>
+
+  <!-- edit modal -->
+  <div ng-if='ctrl.showEditForm' class='popUp'>
+    <form ng-submit='ctrl.editMovie(ctrl.movie)'>
+      <div class="row">
+        <label for="title">Title</label>
+        <input type="text" value='{{ctrl.movie.title}}' ng-model='ctrl.movie.title'>
+
+        <label for="year">Year</label>
+        <input type="number" ng-model='ctrl.movie.year'>
+
+        <label for="image">Image</label>
+        <input type="text" value='{{ctrl.movie.image}}' ng-model='ctrl.movie.image'>
+
+        <label for="watched">Watched?
+          <input type="checkbox" ng-model='ctrl.watched' value='{{ctrl.movie.watched}}' ng-model='ctrl.movie.watched'/>
+        </label>
+
+        <label for="description">Description</label>
+          <textarea class='' value='{{ctrl.movie.description}}' ng-model='ctrl.movie.description'></textarea>
+          <input type="submit" value="Update Movie" class=''>
+          <button ng-click='ctrl.toggleModal(movie)'> Don't Update </button>
+          <button ng-click='ctrl.toggleModal(movie)'> X </button>
+      </div>
+  </form>
+</div>
+
+
 </html>

@@ -3,6 +3,42 @@ const app = angular.module('MovieApp', []);
 app.controller("MainController", ["$http", function ($http) {
     const controller = this;
     const editIndex = -1;
+    this.showEditForm = false
+    this.movies = []
+    this.movie = {}
+    this.watched = 'Not Watched'
+
+
+    this.toggleModal = (movie)=>{
+      console.log(movie);
+      this.showEditForm = !this.showEditForm
+      this.movie = movie
+    }
+
+    this.watchedToggle = (movie) =>{
+      movie.watched = !movie.watched
+      $http({
+          method: "PUT",
+          url: "/movie/" + movie._id,
+          data: {
+              title: this.title,
+              description: this.description,
+              year: this.year,
+              image: this.image,
+              watched: movie.watched,
+          }
+      }).then(function (response) {
+          console.log(movie);
+      }, function (error) {
+        console.log(error);
+      });
+
+      if(this.watched == 'Not Watched'){
+        this.watched = 'Watched'
+      } else {
+        this.watched = 'Not Watched'
+      }
+    }
     // GET MOVIES
     this.getMovies = function () {
         $http({
@@ -35,19 +71,23 @@ app.controller("MainController", ["$http", function ($http) {
     }
     // EDIT MOVIE
     this.editMovie = function (movie) {
+
         $http({
             method: "PUT",
             url: "/movie/" + movie._id,
             data: {
-                title: this.title,
-                description: this.description,
-                year: this.year,
-                image: this.image,
-                watched: this.watched,
+                title: movie.title,
+                description: movie.description,
+                year: movie.year,
+                image: movie.image,
+                watched: movie.watched,
             }
         }).then(function (response) {
-            console.log(response);
+            console.log('movie is edited');
+        }, function (error) {
+          console.log(error);
         });
+        controller.toggleModal()
     }
     // DELETE MOVIE
     this.deleteMovie = function (movie) {
@@ -60,4 +100,8 @@ app.controller("MainController", ["$http", function ($http) {
             console.log(error);
         })
     }
+
+
+
+    this.getMovies()
 }]);
